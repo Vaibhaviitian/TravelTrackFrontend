@@ -33,7 +33,7 @@ const   CreatePosts = () => {
       setLoading(true);
       // console.log("Form submitted");
       let response = await axios.post(
-        'http://localhost:3000/community/communityinside-done/creating-new-blog',
+        'https://traveltrackbackend-av1l.onrender.com/community/communityinside-done/creating-new-blog',
         formdata,
         {
           headers: {

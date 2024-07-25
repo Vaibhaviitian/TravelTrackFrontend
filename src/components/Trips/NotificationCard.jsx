@@ -38,7 +38,7 @@ const NotificationCard = ({
 
   const cnfrm = async () => {
     try {
-      let response = await axios.post("http://localhost:3000/Trips/requesthandling", {
+      let response = await axios.post("https://traveltrackbackend-av1l.onrender.com/Trips/requesthandling", {
         following_userid,
         follower_userid,
       });
@@ -55,7 +55,7 @@ const NotificationCard = ({
   const reject = async () => {
     try {
       console.log(collabdocid);
-      let response = await axios.post('http://localhost:3000/Trips/deletecollabrequest',{
+      let response = await axios.post('https://traveltrackbackend-av1l.onrender.com/Trips/deletecollabrequest',{
         collabdocid
       });
       console.log(response.data);

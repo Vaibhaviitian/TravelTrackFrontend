@@ -10,7 +10,7 @@ const ExploreTrips = () => {
     const getalltrips = async () => {
       try {
         let response = await axios.get(
-          "http://localhost:3000/Trips/gettingalltrips"
+          "https://traveltrackbackend-av1l.onrender.com/Trips/gettingalltrips"
         );
         response = response.data.data;
         setData(response);

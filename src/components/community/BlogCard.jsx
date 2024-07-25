@@ -64,7 +64,7 @@ export default function BlogCard({
 
   const handleDelete = async () => {
     let response = await axios.delete(
-      `http://localhost:3000/community/communityinside-done/delete-blog/${id}`
+      `https://traveltrackbackend-av1l.onrender.com/community/communityinside-done/delete-blog/${id}`
     );
     alert(`${response.data.message}`);
     setIsDeleteModalOpen(false);

@@ -17,7 +17,7 @@ function Notifications() {
       }
 
       let response = await axios.get(
-        `http://localhost:3000/Trips/gettingnotificationsbyid/${id}`
+        `https://traveltrackbackend-av1l.onrender.com/Trips/gettingnotificationsbyid/${id}`
       );
 
       setData(response.data.data);
@@ -34,7 +34,7 @@ function Notifications() {
       let loggedinuser_id = localStorage.getItem("id");
       console.log(loggedinuser_id);
       let response = await axios.post(
-        "http://localhost:3000/Trips/gettingdashboardinfo",
+        "https://traveltrackbackend-av1l.onrender.com/Trips/gettingdashboardinfo",
         { loggedinuser_id }
       );
       response = response.data.data;

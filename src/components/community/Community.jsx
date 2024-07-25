@@ -8,7 +8,7 @@ const Community = () => {
 
   const getcarddata = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/community/communityinside-done/show-all-blogs');
+      const response = await axios.get('https://traveltrackbackend-av1l.onrender.com/community/communityinside-done/show-all-blogs');
       const data = response.data;
       // console.log('Fetched data:', data);
       // console.log(data.Blogs[0]._id);

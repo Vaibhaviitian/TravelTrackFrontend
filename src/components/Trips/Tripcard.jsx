@@ -36,7 +36,7 @@ const Tripcard = ({
     try {
       console.log("Following user ID:", following_userid);
       console.log("Starting API request...");
-      let response = await axios.post("http://localhost:3000/Trips/iscollab", {
+      let response = await axios.post("https://traveltrackbackend-av1l.onrender.com/Trips/iscollab", {
         trip_id: id,
         following_userid,
       });

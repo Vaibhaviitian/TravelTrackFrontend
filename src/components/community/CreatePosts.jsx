@@ -45,7 +45,7 @@ const   CreatePosts = () => {
       setLoading(false);
       toast.success("Post uploaded successfully");
       alert('Post uploaded successfully');
-      navigate('/myposts');
+      navigate('/community');
     } catch (error) {
       console.log("Error in form submission: " + error);
     }

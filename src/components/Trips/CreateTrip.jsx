@@ -34,7 +34,7 @@ const TripPlanner = () => {
       );
       setLoading(false);
       toast.success("Trip created successfully");
-      navigate("/mytrips");
+      navigate("/exploretrips");
     } catch (error) {
       console.error("Error creating trip:", error);
       toast.error(

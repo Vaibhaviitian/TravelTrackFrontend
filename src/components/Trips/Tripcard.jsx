@@ -120,7 +120,7 @@ const Tripcard = ({
         }
       );
       response = response.data.data;
-      toast.success(`Request successfully sent to ${username}`);
+      alert(`Request successfully sent to ${username}`);
       console.log(response);
     } catch (error) {
       console.error(error);

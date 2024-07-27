@@ -20,18 +20,62 @@ const Tripcard = ({
   console.log(isusertrip);
   const [timeAgo, setTimeAgo] = useState("");
   const [formatcreated, setFormatcreated] = useState("");
-  
+
   const [review, setReview] = useState([]);
   const [finalrate, setfinalrate] = useState(0);
   const [showRatingForm, setShowRatingForm] = useState(false);
   const [rate, setrate] = useState(0);
   const [total, setTotal] = useState("");
+  const [messsage, setMesssage] = useState("");
+  const [collaborateButtonClickable, setCollaborateButtonClickable] =
+    useState("");
+
+  let following_userid = localStorage.getItem("id");
+
+  const gettingMessageOfCollab = async () => {
+    try {
+      console.log("Following user ID:", following_userid);
+      console.log("Starting API request...");
+      let response = await axios.post("http://localhost:3000/Trips/iscollab", {
+        trip_id: id,
+        following_userid,
+      });
+      // console.log("API request completed.");
+      console.log("Response:", response);
+
+      let responseData = response?.data?.message;
+      console.log("Response data message:", responseData);
+
+      if (responseData === "Already collaborated") {
+        setMesssage("Collaborated");
+        console.log("Setting message to 'Collaborated'");
+        setCollaborateButtonClickable(false);
+        console.log("Setting collaborate button to not clickable");
+      }
+      if (responseData === "Collaborate") {
+        setMesssage("Collaborate");
+        console.log("Setting message to 'Collaborate'");
+        setCollaborateButtonClickable(true);
+        console.log("Setting collaborate button to clickable");
+      }
+    } catch (error) {
+      console.log("Error occurred:", error);
+      if (error.response) {
+        console.log("Error response data:", error.response.data.message);
+      }
+    }
+  };
+
+  const kkkkk = () => {
+    toast.error("Already Collaborated");
+  };
   let avataroptional;
   console.log("isloggedinuser = " + isusertrip);
   useEffect(() => {
     avataroptional = localStorage.getItem("url");
     setTimeAgo(formatTimeAgo(createdAt));
     setFormatcreated(formatDate(createdAt));
+    gettingMessageOfCollab();
   }, [createdAt]);
 
   const getttingreviewofcard = async () => {
@@ -72,15 +116,15 @@ const Tripcard = ({
         {
           following_userid,
           follower_userid,
+          trip_id: id,
         }
       );
       response = response.data.data;
       toast.success(`Request successfully sent to ${username}`);
-      alert(`Request successfully sent to ${username}`);
       console.log(response);
     } catch (error) {
       console.error(error);
-      alert(error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
   const formatDate = (dateString) => {
@@ -158,8 +202,10 @@ const Tripcard = ({
             <p className="text-xs text-gray-400">{timeAgo}</p>
           </div>
         </div>
-        
-        <h5 className="text-2xl text-center bg-orange-500 text-black p-1 rounded-xl font-bold mb-2">{tripName}</h5>
+
+        <h5 className="text-2xl text-center bg-orange-500 text-black p-1 rounded-xl font-bold mb-2">
+          {tripName}
+        </h5>
         <p className="text-gray-300 mb-2">
           <strong>Ready for enjoying the trip of - </strong>
           {destination}
@@ -233,13 +279,34 @@ const Tripcard = ({
             >
               Rating + <br /> <strong> {total} user rated this</strong>
             </button>
-            <button
-              type="button"
-              className="btn btn-success ml-4 mr-4"
-              onClick={createcollaboration}
-            >
-              Collaborate
-            </button>
+            {collaborateButtonClickable ? (
+              <button
+                type="button"
+                className="btn btn-success ml-4 mr-4"
+                onClick={createcollaboration}
+              >
+                {messsage}
+              </button>
+            ) : (
+              <div
+                onClick={kkkkk}
+                className="btn btn-warning ml-4 flex justify-center items-center mr-4"
+              >
+                {" "}
+                {messsage}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-check-circle-fill"
+                  viewBox="0 0 16 16"
+                  className="ml-5"
+                >
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                </svg>
+              </div>
+            )}
           </div>
           {showRatingForm && (
             <div className="flex flex-col items-center mt-4">

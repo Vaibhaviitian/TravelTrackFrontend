@@ -13,7 +13,7 @@ const LoginForm = ({ isLogin }) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/user/login", {
+      const response = await axios.post("https://traveltrackbackend-av1l.onrender.com/user/login", {
         username,
         password,
       });

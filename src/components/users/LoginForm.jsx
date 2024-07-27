@@ -5,22 +5,20 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = ({ isLogin }) => {
+  const [isload,setIsload] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
+    isload(true);
 
     try {
       const response = await axios.post("https://traveltrackbackend-av1l.onrender.com/user/login", {
         username,
         password,
       });
-
-      // console.log("Login success:", response.data);
-      toast.success(response.data.message);
-      alert("Logged in successfully")
       console.log(response.data.loggedInUser);
       localStorage.setItem("userData", JSON.stringify(response.data.loggedInUser));
       localStorage.setItem("id",(response.data.loggedInUser._id));
@@ -30,6 +28,8 @@ const LoginForm = ({ isLogin }) => {
       if (accessToken) {
         localStorage.setItem("authToken", accessToken);
         isLogin(); // Update authentication state in App.jsx
+        setIsload(false);
+        toast.success(response.data.message);
         navigate("/home");
       } else {
         console.log('No authentication token received');
@@ -50,7 +50,19 @@ const LoginForm = ({ isLogin }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
+    <>
+    {isload ? (
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+        <div
+          className="spinner-border text-orange-500"
+          role="status"
+          style={{ width: "5rem", height: "5rem" }}
+        >
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    ) : (
+      <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold mb-5 text-orange-700 text-center">
           Log in
@@ -108,6 +120,8 @@ const LoginForm = ({ isLogin }) => {
       </div>
       <ToastContainer />
     </div>
+    )}
+  </>
   );
 };
 

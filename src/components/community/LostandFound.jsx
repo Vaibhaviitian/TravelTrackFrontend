@@ -51,10 +51,12 @@ const LostandFound = () => {
         ))
       ) : (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-          <div>
-            <span className="visually-hidden">
-              Not having any lost and found posts to show
-            </span>
+          <div
+            className="spinner-border text-orange-500"
+            role="status"
+            style={{ width: "5rem", height: "5rem" }}
+          >
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       )}

@@ -11,10 +11,10 @@ const Dashboard = ({ name }) => {
   const [avatar, setAvatar] = useState("");
   const [coverImage, setCoverImage] = useState("");
   const navigate = useNavigate();
-  const [followingCount, setFollowingCount] = useState(0);
-  const [followerCount, setFollowerCount] = useState(0);
-  const [tripLength, setTripLength] = useState(0);
-  const [blogCounts, setBlogCounts] = useState(0);
+  const [followingCount, setFollowingCount] = useState("--");
+  const [followerCount, setFollowerCount] = useState("--");
+  const [tripLength, setTripLength] = useState("--");
+  const [blogCounts, setBlogCounts] = useState("--");
   const [notification, setNotification] = useState("");
 
   const getdashboarddata = async () => {

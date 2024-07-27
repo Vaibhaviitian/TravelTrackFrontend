@@ -9,6 +9,7 @@ const ExploreTrips = () => {
   useEffect(() => {
     const getalltrips = async () => {
       try {
+        console.log("Hello");
         let response = await axios.get(
           "https://traveltrackbackend-av1l.onrender.com/Trips/gettingalltrips"
         );

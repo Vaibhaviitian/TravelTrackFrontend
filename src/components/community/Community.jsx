@@ -44,7 +44,15 @@ const Community = () => {
           />
         ))
       ) : (
-        <p></p>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+          <div
+            className="spinner-border text-orange-500"
+            role="status"
+            style={{ width: "5rem", height: "5rem" }}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
       )}
     </div>
   );

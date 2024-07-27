@@ -4,7 +4,7 @@ import axios from "axios";
 
 const ExploreTrips = () => {
   const [data, setData] = useState([]);
-  let id = localStorage.getItem('id');
+  let id = localStorage.getItem("id");
 
   useEffect(() => {
     const getalltrips = async () => {
@@ -26,9 +26,9 @@ const ExploreTrips = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {data.length > 0 ? 
+      {data.length > 0 ? (
         data.map((fieldobject) => (
-          <Tripcard 
+          <Tripcard
             id={fieldobject._id}
             startDate={fieldobject.startDate}
             endDate={fieldobject.endDate}
@@ -39,12 +39,21 @@ const ExploreTrips = () => {
             accommodation={fieldobject.accommodation}
             avatarimage={fieldobject.user.avatar}
             username={fieldobject.user.username}
-            isusertrip={id===fieldobject.user._id}
+            isusertrip={id === fieldobject.user._id}
             follower_userid={fieldobject.user._id}
           />
-        )) 
-        : 
-        <p>Nothing to render here</p>}
+        ))
+      ) : (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+          <div
+            className="spinner-border text-orange-500"
+            role="status"
+            style={{ width: "5rem", height: "5rem" }}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -20,6 +20,7 @@ const Tripcard = ({
   console.log(isusertrip);
   const [timeAgo, setTimeAgo] = useState("");
   const [formatcreated, setFormatcreated] = useState("");
+  
   const [review, setReview] = useState([]);
   const [finalrate, setfinalrate] = useState(0);
   const [showRatingForm, setShowRatingForm] = useState(false);

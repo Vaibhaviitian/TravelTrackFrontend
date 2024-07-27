@@ -12,7 +12,7 @@ const LoginForm = ({ isLogin }) => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    isload(true);
+    setIsload(true);
 
     try {
       const response = await axios.post("https://traveltrackbackend-av1l.onrender.com/user/login", {

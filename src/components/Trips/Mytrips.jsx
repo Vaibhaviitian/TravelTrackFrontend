@@ -57,7 +57,7 @@ function Mytrips() {
               accommodation={fieldobject.accommodation}
               avatarimage={fieldobject.user.avatar}
               username={fieldobject.user.username}
-              isusertrip={id===fieldobject.user._id}
+              isusertrip={id===fieldobject.user}
             />
           ))}
         </div>

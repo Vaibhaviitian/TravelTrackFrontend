@@ -35,6 +35,7 @@ const LoginForm = ({ isLogin }) => {
         console.log('No authentication token received');
       }
     } catch (error) {
+      setIsload(false);
       console.log(error);
       if (
         error.response &&
@@ -42,8 +43,10 @@ const LoginForm = ({ isLogin }) => {
         error.response.data.message
       ) {
         toast.error(error.response.data.message);
+        navigate('/login');
       } else {
         console.error("Unexpected error:", error);
+        navigate('/login');
         toast.error("Sorry, some issue occurred while login");
       }
     }
@@ -58,7 +61,7 @@ const LoginForm = ({ isLogin }) => {
           role="status"
           style={{ width: "5rem", height: "5rem" }}
         >
-          <span className="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Refresh and loading ....</span>
         </div>
       </div>
     ) : (

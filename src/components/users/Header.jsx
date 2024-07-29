@@ -15,8 +15,9 @@ export default function Header({ check }) {
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <Link to="/" className="flex items-center">
             <img
-              src="https://media.istockphoto.com/id/867047736/photo/travel-and-tourism.webp?b=1&s=170667a&w=0&k=20&c=0-39-ABFPqxnMscFpRKo18-87zhbmMQ0RUjsglrvHm4="
-              className="mr-3 h-12 rounded-2xl "
+             src="https://plus.unsplash.com/premium_photo-1681488267974-2e8438b60d4f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+             className="mr-3 h-12  w-24 rounded-2xl "
+             style={{ objectFit: "cover" }}
               alt="Logo"
             />
           </Link>

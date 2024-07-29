@@ -20,7 +20,8 @@ const Welcome = ({ setIsAuthenticate }) => {
             A complete solution for your travel planning and management needs.
           </h2>
           <img
-            src="https://media.istockphoto.com/id/867047736/photo/travel-and-tourism.webp?b=1&s=170667a&w=0&k=20&c=0-39-ABFPqxnMscFpRKo18-87zhbmMQ0RUjsglrvHm4="
+            src="https://images.unsplash.com/photo-1442570468985-f63ed5de9086?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"
+            style={{ objectFit: "cover" }}
             alt="Travel"
             className="w-full h-64 object-cover rounded-md mb-5"
           />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./Layout";
@@ -16,7 +16,6 @@ import {
   Dashboard,
   PrivacyPolicy,
 } from "./components/users/usersexport.js";
-
 import {
   Community,
   CreatePosts,
@@ -33,11 +32,11 @@ import Card from "./Random.jsx";
 import ChatBotCard from "./components/AIbotchat/AIbotchat.jsx";
 import Showcollabandfollowindcard from "./components/users/Showcollabandfollowindcard.jsx";
 import SHowfollowing from "./components/users/Showfollowing.jsx";
+import Forgotpass from "./components/Forgotpass.jsx";
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
 
-  // Check authentication status on initial load
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
     if (authToken) {
@@ -69,6 +68,7 @@ function App() {
             path="/"
             element={<Welcome setIsAuthenticate={setIsAuthenticate} />}
           />
+          <Route path="/forgot-password" element={<Forgotpass />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/login" element={<LoginForm isLogin={handleLogin} />} />
           <Route path="/update" element={<Update />} />
@@ -82,7 +82,6 @@ function App() {
               <ProtectedRoute
                 Component={Dashboard}
                 check={isAuthenticate}
-                setCheck={setIsAuthenticate}
               />
             }
           />
@@ -152,13 +151,19 @@ function App() {
           <Route
             path="/mycollablists"
             element={
-              <ProtectedRoute Component={Showcollabandfollowindcard} check={isAuthenticate} />
+              <ProtectedRoute
+                Component={Showcollabandfollowindcard}
+                check={isAuthenticate}
+              />
             }
           />
           <Route
             path="/myfollowinglist"
             element={
-              <ProtectedRoute Component={SHowfollowing} check={isAuthenticate} />
+              <ProtectedRoute
+                Component={SHowfollowing}
+                check={isAuthenticate}
+              />
             }
           />
           <Route path="/random" element={<Card />} />

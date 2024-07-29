@@ -17,7 +17,7 @@ const Welcome = ({ setIsAuthenticate }) => {
             Welcome to TravelTrack
           </h2>
           <h2 className="text-3xl font-bold text-center mb-5">
-            A complete solution for your travel planning and management needs.
+            A complete solution for your travel planning and stay tuned with our community 
           </h2>
           <img
             src="https://images.unsplash.com/photo-1442570468985-f63ed5de9086?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D"

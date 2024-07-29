@@ -32,7 +32,6 @@ import Card from "./Random.jsx";
 import ChatBotCard from "./components/AIbotchat/AIbotchat.jsx";
 import Showcollabandfollowindcard from "./components/users/Showcollabandfollowindcard.jsx";
 import SHowfollowing from "./components/users/Showfollowing.jsx";
-import Forgotpass from "./components/Forgotpass.jsx";
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
@@ -68,7 +67,6 @@ function App() {
             path="/"
             element={<Welcome setIsAuthenticate={setIsAuthenticate} />}
           />
-          <Route path="/forgot-password" element={<Forgotpass />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/login" element={<LoginForm isLogin={handleLogin} />} />
           <Route path="/update" element={<Update />} />

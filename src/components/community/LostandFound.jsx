@@ -4,8 +4,7 @@ import BlogCard from "./BlogCard.jsx";
 
 const LostandFound = () => {
   const [lostposts, setlostposts] = useState([]);
-  const [error, setError] = useState(null);
-  let id = localStorage.getItem('id');
+  let id = localStorage.getItem("id");
   id = String(id);
 
   const getdata = async () => {
@@ -35,28 +34,35 @@ const LostandFound = () => {
 
   return (
     <>
-      {error ? (
-        <div>Error: {error.message}</div>
-      ) : lostposts.length > 0 ? (
-        lostposts.map((post) => (
-          post?.laf ? (
-            <BlogCard
-              key={post?._id}
-              id={post?._id}
-              islost={post?.laf}
-              title={post?.title}
-              message={post?.message}
-              photo={post?.photo}
-              creatingtime={post?.createdAt}
-              user={post?.user?.username}
-              isuser={id === String(post?.user?._id)}
-            />
-          ) : (
-            <></>
-          )
-        ))
+      {lostposts.length > 0 ? (
+        lostposts.map(
+          (post) =>
+            post?.laf && (
+              <BlogCard
+                key={post?._id}
+                id={post?._id}
+                islost={post?.laf}
+                title={post?.title}
+                message={post?.message}
+                photo={post?.photo}
+                creatingtime={post?.createdAt}
+                user={post?.user?.username}
+                isuser={id === String(post?.user?._id)}
+              />
+            )
+        )
       ) : (
-        <></>
+        <>
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+            <div
+              className="spinner-border text-orange-500"
+              role="status"
+              style={{ width: "5rem", height: "5rem" }}
+            >
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </>
       )}
     </>
   );

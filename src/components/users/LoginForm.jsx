@@ -3,6 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "../Loading";
 
 const LoginForm = ({ isLogin }) => {
   const [isload,setIsload] = useState(false);
@@ -55,15 +56,9 @@ const LoginForm = ({ isLogin }) => {
   return (
     <>
     {isload ? (
-      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-        <div
-          className="spinner-border text-orange-500"
-          role="status"
-          style={{ width: "5rem", height: "5rem" }}
-        >
-          <span className="visually-hidden">Refresh and loading ....</span>
-        </div>
-      </div>
+      <>
+          <Loading />
+        </>
     ) : (
       <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">

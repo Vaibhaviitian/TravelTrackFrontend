@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Loading from "../Loading";
 
 const   CreatePosts = () => {
   const [title, setTitle] = useState("");
@@ -54,11 +55,9 @@ const   CreatePosts = () => {
   return (
     <>
       {isLoading ? (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-          <div className="spinner-border text-orange-500" role="status" style={{ width: '5rem', height: '5rem' }}>
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
+        <>
+        <Loading />
+      </>
       ) : (
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto mt-10">
           <h2 className="text-orange-500 text-2xl mb-6 text-center">Create Your Posts</h2>

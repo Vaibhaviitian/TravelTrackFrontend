@@ -1,16 +1,49 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Home() {
   return (
     <div className="mx-auto w-full max-w-7xl">
+      <div class="bg-gradient-to-r from-blue-500 to-green-500 text-black p-8 rounded-lg shadow-lg flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-bold mb-2">
+            Become a Verified Travel Agent
+          </h2>
+          <p class="text-lg mb-4" style={{ fontWeight: "bolder" }}>
+            Join our platform as a verified travel agent and gain exclusive
+            access to create and manage trips. Enjoy the benefits of enhanced
+            credibility and trust from travelers. Get verified today and start
+            earning with our paid agent program!!
+          </p>
+          <div>
+            {" "}
+            <NavLink
+              class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100 transition duration-300"
+              to="/agentverification-via-OTP"
+            >
+              <button class="inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-[#46311f] hover:bg-white hover:text-[#7747FF] focus:text-[#7747FF] focus:bg-gray-200 text-gray-50 font-bold leading-loose transition duration-200">
+                Get Verified Now
+              </button>
+            </NavLink>
+          </div>
+        </div>
+        <div>
+          <img
+            src="https://media.istockphoto.com/id/1332358775/photo/young-couple-shaking-hands-deal-contract-real-estate-investment-business-agreement-agent.webp?b=1&s=170667a&w=0&k=20&c=VqF0JlBFzgCd8gn8lDW7yAEhlPO9RpI0g1Lx2k_Z-j8="
+            alt="Travel Agent"
+            class="max-w-96 h-48 rounded-3xl shadow-lg"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+      </div>
+
       <aside className="relative overflow-hidden text-black rounded-lg sm:mx-16 mx-2 sm:py-16">
         <div className="relative z-10 max-w-screen-xl px-4  pb-20 pt-10 sm:py-24 mx-auto sm:px-6 lg:px-8">
           <div className="max-w-xl sm:mt-1 mt-80 space-y-8 text-center sm:text-right sm:ml-auto">
             <h2 className="text-4xl font-bold sm:text-5xl">
               Explore Trips
               <span className="hidden sm:block text-4xl">
-                Collaborate with  friends{" "}
+                Collaborate with friends{" "}
               </span>
               <span className="hidden sm:block text-4xl">
                 Select Trips on the basis of Rating{" "}
@@ -98,7 +131,7 @@ export default function Home() {
         <div className="relative z-10 max-w-screen-xl px-4 pb-20 pt-10 sm:py-24 mx-auto sm:px-6 lg:px-8 flex flex-col-reverse sm:flex-row items-center">
           <div className="max-w-xl sm:mt-1 mt-80 space-y-8 text-center mr-96 sm:text-left sm:ml-auto">
             <h2 className="text-3xl font-bold sm:text-5xl">
-              Want Assistance. 
+              Want Assistance.
               <span className="hidden sm:block text-3xl">
                 Talk with Chatbot
               </span>
@@ -129,9 +162,7 @@ export default function Home() {
               <span className="hidden sm:block text-3xl">
                 See all Notifications
               </span>
-              <span className="hidden sm:block text-3xl">
-                Make friends
-              </span>
+              <span className="hidden sm:block text-3xl">Make friends</span>
             </h2>
 
             <Link
@@ -150,7 +181,6 @@ export default function Home() {
           />
         </div>
       </aside>
-
     </div>
   );
 }

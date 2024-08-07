@@ -32,6 +32,7 @@ import Card from "./Random.jsx";
 import ChatBotCard from "./components/AIbotchat/AIbotchat.jsx";
 import Showcollabandfollowindcard from "./components/users/Showcollabandfollowindcard.jsx";
 import SHowfollowing from "./components/users/Showfollowing.jsx";
+import Otpverification from "./components/OTP/Otpverification.jsx";
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
@@ -160,6 +161,15 @@ function App() {
             element={
               <ProtectedRoute
                 Component={SHowfollowing}
+                check={isAuthenticate}
+              />
+            }
+          />
+          <Route
+            path="/agentverification-via-OTP"
+            element={
+              <ProtectedRoute
+                Component={Otpverification}
                 check={isAuthenticate}
               />
             }

@@ -10,7 +10,7 @@ const NumberTicker = () => {
   const getcounts = async () => {
     try {
       let response = await axios.get(
-        "https://traveltrackbackend-av1l.onrender.com/user/getting-totaluser"
+        "http://localhost:3000/user/getting-totaluser"
       );
       console.log(response);
       setValue(response.data.data);

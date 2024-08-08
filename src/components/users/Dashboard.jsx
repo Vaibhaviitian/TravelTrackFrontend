@@ -22,7 +22,7 @@ const Dashboard = ({ name }) => {
       let loggedinuser_id = localStorage.getItem("id");
       console.log(loggedinuser_id);
       let response = await axios.post(
-        "https://traveltrackbackend-av1l.onrender.com/Trips/gettingdashboardinfo",
+        "http://localhost:3000/Trips/gettingdashboardinfo",
         { loggedinuser_id }
       );
       response = response.data.data;

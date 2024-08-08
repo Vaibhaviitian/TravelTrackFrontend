@@ -28,11 +28,13 @@ import {
   Notifications,
   TripPlanner,
 } from "./components/Trips/tripsexport.js";
-import Card from "./Random.jsx";
 import ChatBotCard from "./components/AIbotchat/AIbotchat.jsx";
 import Showcollabandfollowindcard from "./components/users/Showcollabandfollowindcard.jsx";
 import SHowfollowing from "./components/users/Showfollowing.jsx";
 import Otpverification from "./components/OTP/Otpverification.jsx";
+import OTP from "./components/UI/OTP.jsx";
+import OtpInputCard from "./components/OTP/Otpenter.jsx";
+import Success from "./components/UI/Success.jsx";
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
@@ -174,7 +176,25 @@ function App() {
               />
             }
           />
-          <Route path="/random" element={<Card />} />
+          <Route
+            path="/checking-OTP"
+            element={
+              <ProtectedRoute
+                Component={OtpInputCard}
+                check={isAuthenticate}
+              />
+            }
+          />
+          <Route
+            path="/confirmandverified-OTP"
+            element={
+              <ProtectedRoute
+                Component={Success}
+                check={isAuthenticate}
+              />
+            }
+          />
+          <Route path="/random" element={<Success />} />
         </Routes>
         <ToastContainer />
       </Layout>

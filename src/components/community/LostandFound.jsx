@@ -11,7 +11,7 @@ const LostandFound = () => {
   const getdata = async () => {
     try {
       let response = await axios.get(
-        "https://traveltrackbackend-av1l.onrender.com/community/communityinside-done/show-all-blogs"
+        "http://localhost:3000/community/communityinside-done/show-all-blogs"
       );
       response = response.data;
       // console.log("API Response:", response);

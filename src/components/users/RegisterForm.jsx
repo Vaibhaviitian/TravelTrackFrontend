@@ -33,7 +33,7 @@ const RegisterForm = ({ onRegister }) => {
       }
 
       const response = await axios.post(
-        "https://traveltrackbackend-av1l.onrender.com/user/register",
+        "http://localhost:3000/user/register",
         formData,
         {
           headers: {

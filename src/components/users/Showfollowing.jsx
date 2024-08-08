@@ -11,7 +11,7 @@ const SHowfollowing = () => {
     try {
       let id = localStorage.getItem("id");
       let response = await axios.post(
-        "https://traveltrackbackend-av1l.onrender.com/Trips/dashboard-details/followings",
+        "http://localhost:3000/Trips/dashboard-details/followings",
         { id }
       );
       console.log("Getting resp")

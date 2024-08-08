@@ -11,7 +11,7 @@ export default function Contact() {
     try {
         console.log("aage hai")
         e.preventDefault();
-        let response = await axios.post('https://traveltrackbackend-av1l.onrender.com/user/sending-feedback',{
+        let response = await axios.post('http://localhost:3000/user/sending-feedback',{
             id,feedback
         })
         if(!response){

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading from "../Loading.jsx";
 
 const TripPlanner = () => {
   const [tripName, setTripName] = useState("");
@@ -46,15 +47,9 @@ const TripPlanner = () => {
   return (
     <>
       {isLoading ? (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-          <div
-            className="spinner-border text-orange-500"
-            role="status"
-            style={{ width: "5rem", height: "5rem" }}
-          >
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
+        <>
+          <Loading />
+        </>
       ) : (
         <div className="min-h-screen flex items-center justify-center bg-gray-800">
           <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md">

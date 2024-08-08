@@ -22,10 +22,8 @@ const OtpInputCard = ({ onSubmit }) => {
     try {
       let phonenumber = localStorage.getItem("phonenumber");
       phonenumber = phonenumber.replace(/\s+/g, "");
-      console.log(phonenumber); // Output: +918303131343
 
       const id = localStorage.getItem("id");
-      console.log(id, phonenumber);
       const response = await axios.post(
         "https://traveltrackbackend-av1l.onrender.com/user/cheking-otp",
         {
@@ -35,16 +33,13 @@ const OtpInputCard = ({ onSubmit }) => {
         }
       );
       if (response.data.ans) {
-        console.log(response.data.ans);
         navigate("/confirmandverified-OTP");
       }
-      console.log(response);
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
       console.log(`we having error of ${error}`);
     }
-    console.log(otp);
   };
 
   return (

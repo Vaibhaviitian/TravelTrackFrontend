@@ -8,19 +8,16 @@ const OtpVerification = () => {
   const [phonenumber, setPhonenumber] = useState("");
   const navigate = useNavigate();
   const handleotp = async (event) => {
-    console.log("Aagaye")
     event.preventDefault();
    try {
     localStorage.setItem('phonenumber',phonenumber);
      const response = await axios.post('https://traveltrackbackend-av1l.onrender.com/user/generate-otp',{
        phonenumber
      })
-     console.log(response);
      toast.success(response.data.data);
      if(response.data.success){
       navigate('/checking-OTP')
      }
-   console.log("sfsfs");
    } catch (error) {
     toast.error(error.response.data.message)
     console.log(error)

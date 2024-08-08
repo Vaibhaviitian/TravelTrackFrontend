@@ -6,7 +6,7 @@ function Phonein() {
   const [phonenumber, setPhonenumber] = useState("");
   const handleotp = async (event) => {
     event.preventDefault();
-    const response = await axios.post('http://localhost:3000/user/generate-otp',{
+    const response = await axios.post('https://traveltrackbackend-av1l.onrender.com/user/generate-otp',{
       phonenumber
     })
     console.log(response);

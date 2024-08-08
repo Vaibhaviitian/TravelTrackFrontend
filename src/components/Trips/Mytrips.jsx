@@ -20,7 +20,7 @@ function Mytrips() {
     }
 
     try {
-      let response = await axios.get(`http://localhost:3000/Trips/usertripsbyid/${id}`);
+      let response = await axios.get(`https://traveltrackbackend-av1l.onrender.com/Trips/usertripsbyid/${id}`);
       let trips = response.data.data.trips;
       setData(trips);
       let avatar = response.data.data.avatar;

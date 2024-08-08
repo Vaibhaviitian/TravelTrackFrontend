@@ -28,7 +28,7 @@ function Update() {
      if (editto === "Username") {
         console.log("Entered into username");
         response = await axios.post(
-          "http://localhost:3000/user/editedTo/username",
+          "https://traveltrackbackend-av1l.onrender.com/user/editedTo/username",
           {
             username,
             id,
@@ -40,7 +40,7 @@ function Update() {
         console.log("Entered into email");
         console.log("NEW Email  is"+email);
         response = await axios.post(
-          "http://localhost:3000/user/editedTo/email",
+          "https://traveltrackbackend-av1l.onrender.com/user/editedTo/email",
           {
             email,
             id,
@@ -52,7 +52,7 @@ function Update() {
         console.log("Entered into email");
         console.log("NEW Email  is"+email);
         response = await axios.post(
-          "http://localhost:3000/user/editedTo/fullName",
+          "https://traveltrackbackend-av1l.onrender.com/user/editedTo/fullName",
           {
             fullName,
             id,

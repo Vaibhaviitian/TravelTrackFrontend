@@ -20,7 +20,7 @@ const TripPlanner = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3000/Trips/creatingnewtrips",
+        "https://traveltrackbackend-av1l.onrender.com/Trips/creatingnewtrips",
         {
           tripName,
           destination,

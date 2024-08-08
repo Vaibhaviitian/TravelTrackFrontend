@@ -36,7 +36,7 @@ const Tripcard = ({
     try {
       console.log("Following user ID:", following_userid);
       console.log("Starting API request...");
-      let response = await axios.post("http://localhost:3000/Trips/iscollab", {
+      let response = await axios.post("https://traveltrackbackend-av1l.onrender.com/Trips/iscollab", {
         trip_id: id,
         following_userid,
       });
@@ -82,7 +82,7 @@ const Tripcard = ({
     setShowRatingForm(false);
     try {
       let response = await axios.post(
-        "http://localhost:3000/Trips/ratingsupdateandsubmission",
+        "https://traveltrackbackend-av1l.onrender.com/Trips/ratingsupdateandsubmission",
         {
           id,
           rate: parseFloat(rate), // Convert rate to a number
@@ -112,7 +112,7 @@ const Tripcard = ({
       console.log("aagaye hai ");
       console.log(following_userid, follower_userid);
       let response = await axios.post(
-        "http://localhost:3000/Trips/createcollaborationrequest",
+        "https://traveltrackbackend-av1l.onrender.com/Trips/createcollaborationrequest",
         {
           following_userid,
           follower_userid,
@@ -170,7 +170,7 @@ const Tripcard = ({
     console.log(id);
     try {
       let response = await axios.delete(
-        `http://localhost:3000/Trips/deletingtripbyid/${id}`
+        `https://traveltrackbackend-av1l.onrender.com/Trips/deletingtripbyid/${id}`
       );
       response = response.data.message;
       alert("Removed from your trips");

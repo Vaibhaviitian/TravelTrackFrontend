@@ -27,7 +27,7 @@ const OtpInputCard = ({ onSubmit }) => {
       const id = localStorage.getItem("id");
       console.log(id, phonenumber);
       const response = await axios.post(
-        "http://localhost:3000/user/cheking-otp",
+        "https://traveltrackbackend-av1l.onrender.com/user/cheking-otp",
         {
           phonenumber,
           id,

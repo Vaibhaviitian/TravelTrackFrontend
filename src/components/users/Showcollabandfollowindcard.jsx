@@ -11,7 +11,7 @@ const Showcollabandfollowindcard = () => {
     try {
       let id = localStorage.getItem("id");
       let response = await axios.post(
-        "http://localhost:3000/Trips/dashboard-details/collaborators",
+        "https://traveltrackbackend-av1l.onrender.com/Trips/dashboard-details/collaborators",
         { id }
       );
       response = response.data.data;

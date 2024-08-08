@@ -12,7 +12,7 @@ const OtpVerification = () => {
     event.preventDefault();
    try {
     localStorage.setItem('phonenumber',phonenumber);
-     const response = await axios.post('http://localhost:3000/user/generate-otp',{
+     const response = await axios.post('https://traveltrackbackend-av1l.onrender.com/user/generate-otp',{
        phonenumber
      })
      console.log(response);

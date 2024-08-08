@@ -20,7 +20,7 @@ const Userposts = () => {
       }
 
       let response = await axios.get(
-        `http://localhost:3000/community/communityinside-done/user-blogs/${id}`
+        `https://traveltrackbackend-av1l.onrender.com/community/communityinside-done/user-blogs/${id}`
       );
 
       const user = response.data.data;

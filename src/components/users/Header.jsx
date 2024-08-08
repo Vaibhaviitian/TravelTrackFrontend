@@ -62,6 +62,14 @@ export default function Header({ check }) {
                       </li>
                       <li>
                         <Link
+                          to="/verified-trips"
+                          className="block px-4 py-2 hover:bg-gray-100"
+                        >
+                          Verified Trips 
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
                           to="/exploretrips"
                           className="block px-4 py-2 hover:bg-gray-100"
                         >

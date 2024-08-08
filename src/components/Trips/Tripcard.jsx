@@ -16,8 +16,8 @@ const Tripcard = ({
   username,
   isusertrip,
   follower_userid,
+  isverified
 }) => {
-  console.log(isusertrip);
   const [timeAgo, setTimeAgo] = useState("");
   const [formatcreated, setFormatcreated] = useState("");
 
@@ -34,29 +34,23 @@ const Tripcard = ({
 
   const gettingMessageOfCollab = async () => {
     try {
-      console.log("Following user ID:", following_userid);
-      console.log("Starting API request...");
-      let response = await axios.post("https://traveltrackbackend-av1l.onrender.com/Trips/iscollab", {
-        trip_id: id,
-        following_userid,
-      });
-      // console.log("API request completed.");
-      console.log("Response:", response);
+      let response = await axios.post(
+        "https://traveltrackbackend-av1l.onrender.com/Trips/iscollab",
+        {
+          trip_id: id,
+          following_userid,
+        }
+      );
 
       let responseData = response?.data?.message;
-      console.log("Response data message:", responseData);
 
       if (responseData === "Already collaborated") {
         setMesssage("Collaborated");
-        console.log("Setting message to 'Collaborated'");
         setCollaborateButtonClickable(false);
-        console.log("Setting collaborate button to not clickable");
       }
       if (responseData === "Collaborate") {
         setMesssage("Collaborate");
-        console.log("Setting message to 'Collaborate'");
         setCollaborateButtonClickable(true);
-        console.log("Setting collaborate button to clickable");
       }
     } catch (error) {
       console.log("Error occurred:", error);
@@ -70,7 +64,6 @@ const Tripcard = ({
     toast.error("Already Collaborated");
   };
   let avataroptional;
-  console.log("isloggedinuser = " + isusertrip);
   useEffect(() => {
     avataroptional = localStorage.getItem("url");
     setTimeAgo(formatTimeAgo(createdAt));
@@ -167,7 +160,6 @@ const Tripcard = ({
     if (!id) {
       console.log("Having error in getting key");
     }
-    console.log(id);
     try {
       let response = await axios.delete(
         `https://traveltrackbackend-av1l.onrender.com/Trips/deletingtripbyid/${id}`
@@ -201,6 +193,33 @@ const Tripcard = ({
             <p className="text-xs text-gray-400">{formatcreated}</p>
             <p className="text-xs text-gray-400">{timeAgo}</p>
           </div>
+          {isverified ? (
+            <>
+              <span className="inline-flex items-center bg-green-500 text-black text-xl font-semibold py-1 px-3 rounded-full shadow-md transition-all duration-200 ease-in-out hover:bg-green-600 hover:shadow-lg ml-10">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 text-orange inline-block mr-1"
+                  fill="none"
+                  style={{fontWeight:'bolder'}}
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <strong>
+                  Verified Agent
+                </strong>
+                
+              </span>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
 
         <h5 className="text-2xl text-center bg-orange-500 text-black p-1 rounded-xl font-bold mb-2">

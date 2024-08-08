@@ -1,34 +1,41 @@
 import React, { useEffect, useState } from "react";
-import Tripcard from "./Tripcard";
 import axios from "axios";
 import Loading from "../Loading";
+import Tripcardforverifieduser from "./Tripcardforverifieduser";
 
-const ExploreTrips = () => {
+function VerifiedTrip() {
   const [data, setData] = useState([]);
-  let id = localStorage.getItem("id");
+  const id = localStorage.getItem('id');
+
+  const getusertrips = async () => {
+    try {
+      let response = await axios.get(
+        `https://traveltrackbackend-av1l.onrender.com/Trips/gettingalltrips`
+      );
+      console.log(response)
+      let trips = response.data.data;
+      setData(trips);
+    } catch (error) {
+      console.log(error.response.data.message);
+      console.log("Error is ", error);
+    }
+  };
 
   useEffect(() => {
-    const getalltrips = async () => {
-      try {
-        console.log("Hello");
-        let response = await axios.get(
-          "https://traveltrackbackend-av1l.onrender.com/Trips/gettingalltrips"
-        );
-        response = response.data.data;
-        setData(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getalltrips();
+    getusertrips();
+    console.log("setting function done");
   }, []);
 
+  useEffect(() => {
+    console.log("Updated data", data);
+  }, [data]);
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {data.length > 0 ? (
         data.map((fieldobject) => (
-          <Tripcard
+          <Tripcardforverifieduser
             id={fieldobject._id}
             startDate={fieldobject.startDate}
             endDate={fieldobject.endDate}
@@ -50,7 +57,8 @@ const ExploreTrips = () => {
         </>
       )}
     </div>
+  </>
   );
-};
+}
 
-export default ExploreTrips;
+export default VerifiedTrip;

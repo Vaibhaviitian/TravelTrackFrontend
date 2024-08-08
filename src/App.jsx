@@ -35,6 +35,7 @@ import Otpverification from "./components/OTP/Otpverification.jsx";
 import OTP from "./components/UI/OTP.jsx";
 import OtpInputCard from "./components/OTP/Otpenter.jsx";
 import Success from "./components/UI/Success.jsx";
+import VerifiedTrip from "./components/Trips/VerifiedTrip.jsx";
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
@@ -139,6 +140,15 @@ function App() {
             element={
               <ProtectedRoute
                 Component={Notifications}
+                check={isAuthenticate}
+              />
+            }
+          />
+          <Route
+            path="/verified-trips"
+            element={
+              <ProtectedRoute
+                Component={VerifiedTrip}
                 check={isAuthenticate}
               />
             }

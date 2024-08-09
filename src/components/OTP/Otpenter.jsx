@@ -3,8 +3,10 @@ import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import Otpload from "../UI/Otpload";
 
 const OtpInputCard = ({ onSubmit }) => {
+  const [isload, setIsload] = useState(false);
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
 
@@ -18,6 +20,7 @@ const OtpInputCard = ({ onSubmit }) => {
   };
 
   const handleSubmit = async (event) => {
+    setIsload(true);
     event.preventDefault();
     try {
       let phonenumber = localStorage.getItem("phonenumber");
@@ -32,10 +35,12 @@ const OtpInputCard = ({ onSubmit }) => {
           otp,
         }
       );
+      setIsload(false);
       if (response.data.ans) {
         navigate("/confirmandverified-OTP");
       }
     } catch (error) {
+      setIsload(false);
       console.log(error);
       toast.error(error.response.data.message);
       console.log(`we having error of ${error}`);
@@ -67,6 +72,16 @@ const OtpInputCard = ({ onSubmit }) => {
           >
             Verify OTP
           </button>
+
+          <div>
+            {isload ? (
+              <>
+                <Otpload />
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
         </form>
       </div>
       <ToastContainer />

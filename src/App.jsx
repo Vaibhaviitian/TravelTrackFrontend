@@ -36,6 +36,7 @@ import OTP from "./components/UI/OTP.jsx";
 import OtpInputCard from "./components/OTP/Otpenter.jsx";
 import Success from "./components/UI/Success.jsx";
 import VerifiedTrip from "./components/Trips/VerifiedTrip.jsx";
+import Otpload from "./components/UI/Otpload.jsx";
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
@@ -204,7 +205,7 @@ function App() {
               />
             }
           />
-          <Route path="/random" element={<Success />} />
+          <Route path="/random" element={<Otpload />} />
         </Routes>
         <ToastContainer />
       </Layout>

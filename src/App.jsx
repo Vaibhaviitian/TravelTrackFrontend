@@ -37,6 +37,7 @@ import OtpInputCard from "./components/OTP/Otpenter.jsx";
 import Success from "./components/UI/Success.jsx";
 import VerifiedTrip from "./components/Trips/VerifiedTrip.jsx";
 import Otpload from "./components/UI/Otpload.jsx";
+import Airecommendations from "./components/AIbotchat/Airecommendations.jsx";
 
 function App() {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
@@ -201,6 +202,15 @@ function App() {
             element={
               <ProtectedRoute
                 Component={Success}
+                check={isAuthenticate}
+              />
+            }
+          />
+          <Route
+            path="/Ai-recommendations"
+            element={
+              <ProtectedRoute
+                Component={Airecommendations}
                 check={isAuthenticate}
               />
             }

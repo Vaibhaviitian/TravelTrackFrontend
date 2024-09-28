@@ -11,7 +11,7 @@ const Welcome = ({ setIsAuthenticate }) => {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-gray-900">
+      <div className="min-h-screen flex items-center justify-center bg-gray-900 p-2">
         <div className="bg-white p-8 rounded-lg shadow-lg mt-4 mb-4 w-full max-w-3xl">
           <h2 className="text-5xl font-bold text-orange-700 text-center mb-2">
             Welcome to TravelTrack

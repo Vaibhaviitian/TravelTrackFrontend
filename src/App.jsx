@@ -3,7 +3,6 @@ import { ToastContainer } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./Layout";
-import Fvd from "./components/users/fvdvdvdv.jsx";
 import {
   About,
   Contact,
@@ -205,7 +204,6 @@ function App() {
               />
             }
           />
-          <Route path="/random" element={<Fvd />} />
         </Routes>
 
         <Footer />

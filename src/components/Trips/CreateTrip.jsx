@@ -51,7 +51,7 @@ const TripPlanner = () => {
           <Loading />
         </>
       ) : (
-        <div className="min-h-screen flex items-center justify-center bg-gray-800">
+        <div className="min-h-screen flex items-center justify-center bg-slate-400 p-4">
           <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md">
             <h2 className="text-white text-center text-2xl font-bold mb-6">
               Create Trip & invite your friends

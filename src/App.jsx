@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./Layout";
+import Fvd from "./components/users/fvdvdvdv.jsx";
 import {
   About,
   Contact,
@@ -15,6 +16,7 @@ import {
   Home,
   Dashboard,
   PrivacyPolicy,
+  Footer,
 } from "./components/users/usersexport.js";
 import {
   Community,
@@ -83,10 +85,7 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <ProtectedRoute
-                Component={Dashboard}
-                check={isAuthenticate}
-              />
+              <ProtectedRoute Component={Dashboard} check={isAuthenticate} />
             }
           />
           <Route
@@ -149,10 +148,7 @@ function App() {
           <Route
             path="/verified-trips"
             element={
-              <ProtectedRoute
-                Component={VerifiedTrip}
-                check={isAuthenticate}
-              />
+              <ProtectedRoute Component={VerifiedTrip} check={isAuthenticate} />
             }
           />
           <Route
@@ -191,19 +187,13 @@ function App() {
           <Route
             path="/checking-OTP"
             element={
-              <ProtectedRoute
-                Component={OtpInputCard}
-                check={isAuthenticate}
-              />
+              <ProtectedRoute Component={OtpInputCard} check={isAuthenticate} />
             }
           />
           <Route
             path="/confirmandverified-OTP"
             element={
-              <ProtectedRoute
-                Component={Success}
-                check={isAuthenticate}
-              />
+              <ProtectedRoute Component={Success} check={isAuthenticate} />
             }
           />
           <Route
@@ -215,8 +205,10 @@ function App() {
               />
             }
           />
-          <Route path="/random" element={<Otpload />} />
+          <Route path="/random" element={<Fvd />} />
         </Routes>
+
+        <Footer />
         <ToastContainer />
       </Layout>
     </Router>
